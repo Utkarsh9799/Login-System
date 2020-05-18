@@ -1,5 +1,15 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+
+//Connection string
+const db = require('./config/keys').MongoURI;
+
+//Connecting to Mongo
+mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => console.log('MongoDB Connected!'))
+    .catch(err => console.log(err));
+
 
 //Initialising app
 const app = express();
